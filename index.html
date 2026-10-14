@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - PokeDex</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Imagenes/icono.png" type="image/x-icon">
+</head>
+<body>
+    <h1>
+        <span class="amarillo">JavaScript</span> - Proyecto (Pokedex).
+    </h1>
+    <p>
+        A partir de los archivos <span class="naranja">HTML</span> y <span class="celeste">CSS</span> proporcionados, desarrolle la programación necesaria para implementar una <span class="dorado">Pokédex</span> que permita consultar <span class="verde">Pokémon</span>y visualizar su información (Nombre, número de Pokémon y Tipo). Para obtener los datos, deberá utilizar <span class="amarillo">JavaScript</span> y la <b>API</b> pública <b>PokéAPI</b>.
+    </p>
+    <p>
+        <code class="gris">URL de la API</code>:  <a href="https://pokeapi.co/api/v2/pokemon?limit=151">https://pokeapi.co/api/v2/pokemon?limit=151</a>
+    </p>
+    <h3>¿Qué es una <b>API</b>?</h3>
+    <p>
+        Una <b>API</b> <code class="gris">Interfaz de Programación y Aplicaciones</code> es un conjunto de reglas y herramientass que permite que diferentes aplicaciones o sistemas se comuniquen entre si e intercambien información. Funciona como un intermediario que recibe solicitudes, las comunica al sistema correspondiente y devuelve una respues con los datos solicitados. 
+    </p>
+    <p>
+        Las <b>API</b> permiten, por ejemplo, consultar el clima desde una aplicación, obtener información de un servicio externo o integrar funciones de una plataforma en otra, sin necesidad de desarrollar todas esas funcionalidades desde cero.
+    </p>
+    <center>
+        <iframe width="752" height="432" src="https://www.youtube.com/embed/v9pzXYF1vbY" title="¿Qué es... API?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </center>
+    <h2>Requisitos del proyecto.</h2>
+    <ul>
+        <li>
+            <p>
+                Permitir buscar un <span class="verde">Pokémon</span> y realizar la consulta correspondiente.
+            </p>
+        </li>
+        <li>
+            <p>
+                Obtener los datos de los <span class="verde">Pokémon</span> desde la <span class="dorado">PokéAPI</span>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Mostrar el nombre, número de identificación, imagen y tipos correspondientes al <span class="verde">Pokémon</span> consultado.
+            </p>
+        </li>
+        <li>
+            <p>
+                Actualizar la información presentada cada vez que se realice una nueva búsqueda.
+            </p>
+        </li>
+    </ul>
+    <p>
+        La programación deberá realizarse e un archivo <span class="amarillo">JavaScript</span> independiente, vinculado correctamente con el documento <span class="naranja">HTML</span> proporcionado.
+    </p>
+    <br>
+    <hr>
+    <br>
+    <h2>Ayuda:</h2>
+    <h3>Renderización de datos con <span class="celeste">innerHTML</span>.</h3>
+        <p>
+            Una vez obtenido la información de un <span class="verde">Pokémon</span> desde la <b>API</b>, será necesario mostrarla en el documento <span class="naranja">HTML</span>. Para realizar esta tarea, <span class="amarillo">JavaScript</span> permite utilizar la propiedad <code class="celeste">innerHTML</code>, que permite modificar el contenido <span class="naranja">HTML</span> de un elemento.
+        </p>
+        <p>
+            Mediante este propiedad, es posible incorporar textos, imágenes y otros elementos <span class="naranja">HTML</span> utlizando los datos recibidos desde la <b>API</b>.
+        </p>
+        <br>
+        <div class="center">
+            <u><b>Ejemplo:</b></u>
+        </div>
+<pre><code class="cpp">     <span class="gris">// Seleccionar el elemmento HTML</span>
+    <span class="rojo">const</span> <span class="celeste">contenedor</span> = <span class="celeste">document</span>.<span class="purpura">getElementById</span><span class="dorado">(<span class="celeste">"pokemon"</span>)</span>
+
+    <span class="gris">// Mostrar los datos del objeto.</span>
+    <span class="celeste">contenedor</span>.<span class="purpura">innerHTML</span> = <span class="celeste">`
+    &lt;h2&gt;<span class="azul">${</span><span class="naranja">datos</span><span class="gris">.name</span><span class="azul">}</span>&lt;/h2&gt;
+    &lt;img src="<span class="azul">${</span><span class="naranja">datos</span><span class="purpura">sprites</span><span class="gris">.front_default</span><span class="azul">}</span>"&gt;
+    `</span>; </code></pre>
+    <br>
+    <div class="center"><u><b>Explicación:</b></u></div>
+    <ul>
+        <li>
+            <p>
+                <code><span class="celeste">document</span>.<span class="purpura">getElementById</span><span class="dorado">(<span class="celeste">"pokemon"</span>)</span></code>: Permite seleccionar el elemento <span class="naranja">HTML</span> que tiene el identificador <span class="celeste">pokemon</span>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <code><span class="naranja">datos</span><span class="gris">.name</span></code>: accede al nombre almacenado en el objeto.
+            </p>
+        </li>
+        <li>
+            <p>
+                <code><span class="naranja">datos</span>.<span class="purpura">sprites</span><span class="gris">.front_default</span></code>:  Accede a la dirección de la imagen.
+            </p>
+        </li>
+    </ul>
+    <p>
+        Las comillas invertidas o <code class="gris">(backtick)</code> permiten escribir <span class="naranja">HTML</span> en varias líneas e insertar valores mediante <span class="azul">${}</span>.
+    </p>
+    <br>
+    <hr>
+    <br>
+    <h4>Documento <span class="naranja">HTML</span> y <span class="celeste">CSS</span></h4>
+    <ul>
+        <li>
+            <p>
+                <a href="Documentos/index.html" download="">Documento HTML</a>
+            </p>
+        </li>
+        <li>
+            <p>
+                <a href="Documentos/style.css" download="">Documento CSS</a>
+            </p>
+        </li>
+    </ul>
+    <br>
+    
+    <h3><a href="">Pokédex de ejemplo.</a></h3><br>
+    <hr>
+    <br>
+</body>
+</html>
